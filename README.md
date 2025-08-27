@@ -1,2 +1,0 @@
-# GLAMZBOTTELE
-Glamz
