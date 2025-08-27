@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini App</title>
+  <meta charset="utf-8"/>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body style="text-align:center;font-family:sans-serif">
+  <h1>Xin chào từ Mini App 🚀</h1>
+  <p id="userinfo"></p>
+  <button onclick="sendData()">Gửi dữ liệu về bot</button>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand(); // mở rộng toàn màn hình
+
+    // Hiện thông tin user Telegram
+    document.getElementById("userinfo").innerText = 
+      "Bạn đang đăng nhập với: " + tg.initDataUnsafe.user.first_name;
+
+    // Gửi dữ liệu về bot
+    function sendData() {
+      tg.sendData(JSON.stringify({
+        action: "clicked_button",
+        user: tg.initDataUnsafe.user
+      }));
+    }
+  </script>
+</body>
+</html>
